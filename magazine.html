@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Lana Straw Weekly — Week 1 · 2026</title>
+<style>
+:root {
+  --ink: #0c1016;
+  --ink2: #1a222d;
+  --cream: #f3eee4;
+  --paper: #faf7f0;
+  --crimson: #8a1a28;
+  --crimson-deep: #5c1019;
+  --gold: #b8954a;
+  --gold-lite: #d4b56a;
+  --slate: #2c3542;
+  --muted: #6a6257;
+  --rule: #d6cdb8;
+  --rule-soft: #e8e1d2;
+
+  /* page geometry — single source of truth for print safety */
+  --pg-w: 8.5in;
+  --pg-h: 11in;
+  --pg-margin-x: 0.58in;   /* > 0.5in required interior margin */
+  --pg-margin-top: 0.5in;
+  --pg-margin-bottom: 0.5in;
+  --folio-gap: 0.22in;     /* guaranteed clear space between content and folio */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: #1a1a1a;
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 10.5pt;
+  line-height: 1.5;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+@page { size: letter portrait; margin: 0; }
+
+@media print {
+  html, body { background: white; }
+  .page {
+    break-after: page;
+    page-break-after: always;
+    box-shadow: none;
+    margin: 0;
+  }
+  .page:last-child { break-after: auto; page-break-after: auto; }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}
+
+/* —— PAGE SHELL ——
+   No overflow:hidden on interior pages: nothing may be silently eaten.
+   Only the cover clips, because it carries full-bleed art by design. */
+.page {
+  width: var(--pg-w);
+  height: var(--pg-h);
+  position: relative;
+  overflow: visible;
+  background: var(--paper);
+  margin: 0 auto 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.4);
+}
+.page.cover { overflow: hidden; }
+
+/* Column layout: runhead / flowing content / folio are real flex items,
+   so content can never slide under the folio or off the page bottom. */
+.page-inner {
+  height: 100%;
+  padding: var(--pg-margin-top) var(--pg-margin-x) var(--pg-margin-bottom);
+  display: flex;
+  flex-direction: column;
+}
+.flow {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* —— RUNNING HEADER / FOLIO —— */
+.runhead {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 4px;
+  margin-bottom: 0.16in;
+}
+.runhead .sec { color: var(--crimson); }
+.runhead .iss { font-weight: 500; letter-spacing: 0.1em; color: var(--muted); }
+
+.folio {
+  flex: 0 0 auto;
+  margin-top: var(--folio-gap);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 7pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  padding-top: 5px;
+}
+.folio .pg {
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* —— TYPE —— */
+.sans { font-family: Helvetica Neue, Helvetica, Arial, sans-serif; }
+.kicker {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 6px;
+}
+h1.hed {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 900;
+  font-size: 32pt;
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+h2.subhed {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 700;
+  font-size: 15pt;
+  line-height: 1.15;
+  margin: 0 0 6px;
+}
+.dek {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 11.5pt;
+  font-style: italic;
+  color: var(--slate);
+  line-height: 1.36;
+  margin-bottom: 10px;
+  max-width: 96%;
+}
+.byline {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 7pt;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.body {
+  font-size: 10pt;
+  line-height: 1.52;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.body p { margin-bottom: 0.55em; orphans: 3; widows: 3; }
+.body.drop p:first-of-type::first-letter {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  float: left;
+  font-size: 42pt;
+  line-height: 0.8;
+  padding: 4px 6px 0 0;
+  font-weight: 900;
+  color: var(--crimson);
+}
+
+.two-col { column-count: 2; column-gap: 0.26in; }
+.three-col { column-count: 3; column-gap: 0.22in; column-rule: 1px solid var(--rule-soft); }
+
+.pull {
+  border-left: 3.5px solid var(--crimson);
+  padding: 4px 0 4px 14px;
+  margin: 12px 0;
+  break-inside: avoid;
+}
+.pull .q {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 14.5pt;
+  font-style: italic;
+  line-height: 1.22;
+  color: var(--ink);
+}
+.pull .attr {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.caption {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 7pt;
+  line-height: 1.35;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.caption strong { color: var(--ink); font-weight: 700; }
+.caption .cred { color: var(--gold); font-weight: 600; letter-spacing: 0.04em; }
+
+/* —— FIGURES ——
+   A figure is a flex column: frame on top, caption underneath and OUTSIDE the
+   clipping box, so a caption can never be cropped by the photo container. */
+.fig {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin-bottom: 8px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.fig .caption { flex: 0 0 auto; margin-top: 5px; }
+.fig:last-child { margin-bottom: 0; }
+
+.img-frame {
+  flex: 0 0 auto;
+  position: relative;
+  overflow: hidden;              /* crops the PHOTO only — never text */
+  background: #141414;
+  break-inside: avoid;
+}
+.img-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Elastic figure: the photo absorbs leftover page space (and gives it back
+   when text needs more), which keeps text from ever being pushed off-page. */
+.fig--fill { flex: 1 1 auto; min-height: 0; }
+.fig--fill .img-frame { flex: 1 1 auto; min-height: 1.2in; max-height: 5.6in; }
+
+/* Fixed frame heights, tuned so every page measures short of the folio. */
+.img-frame.lead { height: 3.1in; }
+.img-frame.essay-hero { height: 4.3in; }
+.img-frame.essay-side { height: 1.95in; }
+.img-frame.tall { height: 3.3in; }
+.img-frame.med { height: 2.1in; }
+.img-frame.short { height: 1.75in; }
+.img-frame.strip { height: 1.8in; }
+.img-frame.pull-art { height: 1.85in; }
+
+.object-top img { object-position: center top; }
+.object-faces img { object-position: center 28%; }
+.object-hand img { object-position: center 32%; }
+.object-center img { object-position: center center; }
+.object-low img { object-position: center 72%; }
+
+/* —— GRIDS —— */
+.rail { display: flex; flex-direction: column; min-height: 0; }
+
+.essay-layout {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 0.2in;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.essay-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.14in;
+  min-height: 0;
+}
+.essay-stack .fig { margin-bottom: 0; }
+
+.pull-art-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.18in;
+  align-items: stretch;
+}
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.22in; align-items: start; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.16in; }
+.grid-spread { display: grid; grid-template-columns: 1.4fr 1fr; gap: 0.24in; align-items: start; }
+.grid-spread-r { display: grid; grid-template-columns: 1fr 1.35fr; gap: 0.24in; align-items: start; }
+.grid-feature { display: grid; grid-template-columns: 1.65fr 1fr; gap: 0.22in; align-items: stretch; }
+
+/* Rows that should soak up the leftover height of a page */
+.row-fill { flex: 1 1 auto; min-height: 0; }
+.row-fixed { flex: 0 0 auto; }
+.spacer { flex: 1 1 auto; min-height: 0; }
+
+.rule { border: none; border-top: 1px solid var(--rule); margin: 10px 0; }
+.rule-thick { border: none; border-top: 2.5px solid var(--ink); margin: 10px 0 12px; }
+
+.source-note {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 6.5pt;
+  font-style: italic;
+  color: var(--muted);
+  margin: 4px 0 10px;
+  line-height: 1.35;
+  padding: 5px 8px;
+  background: var(--cream);
+  border-left: 2px solid var(--gold);
+  break-inside: avoid;
+}
+
+/* —— COVER ——
+   Art is a real <img>, not a CSS background: background graphics can be
+   switched off in the print dialog, which would blank the cover photo. */
+.cover { background: #080a0e; color: #fff; padding: 0; }
+.cover-art {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.cover-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+.cover-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top,
+    rgba(6,8,12,0.95) 0%,
+    rgba(6,8,12,0.55) 32%,
+    rgba(6,8,12,0.12) 55%,
+    rgba(6,8,12,0.4) 100%);
+}
+.cover-mast {
+  position: absolute;
+  top: 0.42in;
+  left: 0.48in;
+  right: 0.48in;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.mast-brand {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 13pt;
+  font-weight: 900;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+.mast-sub {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-lite);
+  margin-top: 4px;
+}
+.issue-badge {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  text-align: right;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  padding: 8px 12px;
+  min-width: 1.35in;
+}
+.issue-badge .wk {
+  font-size: 18pt;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+.issue-badge .meta {
+  font-size: 6.5pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+.cover-sells {
+  position: absolute;
+  top: 1.6in;
+  right: 0.48in;
+  z-index: 3;
+  width: 2.15in;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.sell {
+  border-top: 1px solid rgba(255,255,255,0.35);
+  padding: 7px 0;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+.sell .tag {
+  display: block;
+  font-size: 6pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-lite);
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+.cover-hed-block {
+  position: absolute;
+  left: 0.48in;
+  right: 0.48in;
+  bottom: 0.78in;          /* clears the 0.4in crimson bar with room to spare */
+  z-index: 3;
+}
+.cover-kicker {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-lite);
+  margin-bottom: 8px;
+}
+.cover-hed {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 900;
+  font-size: 74pt;
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  text-shadow: 0 3px 28px rgba(0,0,0,0.55);
+}
+.cover-dek {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 13pt;
+  font-style: italic;
+  margin-top: 12px;
+  max-width: 5.8in;
+  line-height: 1.3;
+  opacity: 0.95;
+}
+.cover-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 0.4in;
+  background: var(--crimson);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.48in;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  z-index: 4;
+}
+
+/* —— TABLES —— */
+.score-table, .standings {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.score-table { font-size: 7.5pt; margin-bottom: 8px; }
+.score-table th, .standings th {
+  text-align: left;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 6pt;
+  color: var(--muted);
+  border-bottom: 1.5px solid var(--ink);
+  padding: 3px 3px;
+}
+.score-table td {
+  padding: 4px 3px;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: baseline;
+}
+.score-table tr.win td { font-weight: 700; background: rgba(138,26,40,0.05); }
+.score-table .num, .standings .num { text-align: right; font-variant-numeric: tabular-nums; }
+.score-table .winner { color: var(--crimson); font-weight: 800; }
+
+.standings { font-size: 7pt; }
+.standings td {
+  padding: 2.5px 3px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.standings tr.playoff td:first-child {
+  color: var(--crimson);
+  font-weight: 800;
+}
+
+/* Data pages carry no art, so the rules breathe instead of leaving a
+   dead band above the folio. */
+.airy .score-table td { padding: 6.5px 3px; }
+.airy .standings td { padding: 5px 3px; }
+.airy .stat-box { padding: 13px 8px; }
+.airy .scorer-list { line-height: 1.95; }
+.airy-plus .score-table td { padding: 9px 3px; }
+.airy-plus .standings td { padding: 6.5px 3px; }
+.airy-plus .stat-box { padding: 16px 8px; }
+.airy-plus .scorer-list { line-height: 2.2; }
+
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  margin: 8px 0 12px;
+}
+.stat-box {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 9px 8px;
+  text-align: center;
+}
+.stat-box .n {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18pt;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--gold);
+}
+.stat-box .l {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 5.5pt;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+.scorer-list {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 8pt;
+  line-height: 1.55;
+}
+
+.sidebar {
+  background: var(--cream);
+  border-top: 3px solid var(--crimson);
+  padding: 10px 11px;
+  font-size: 9pt;
+  line-height: 1.4;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.sidebar h3 {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.sidebar.dark { border-top-color: var(--ink); }
+.sidebar.tight { font-size: 8.3pt; line-height: 1.36; padding: 8px 10px; }
+
+.chip {
+  display: inline-block;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 6pt;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 2px 6px;
+  margin-right: 3px;
+}
+
+/* —— TOC —— */
+.toc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px dotted var(--rule);
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 9pt;
+}
+.toc-item .t { font-weight: 700; }
+.toc-item .d { color: var(--muted); font-size: 7.5pt; font-weight: 400; margin-left: 6px; }
+.toc-item .p { color: var(--crimson); font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: 0.06em; }
+
+/* —— TRADE TIMELINE —— */
+.timeline { position: relative; padding-left: 0; }
+.deal {
+  display: grid;
+  grid-template-columns: 0.4in 1fr;
+  gap: 7px;
+  margin-bottom: 7px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.deal .num {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 16pt;
+  font-weight: 900;
+  color: var(--crimson);
+  line-height: 1;
+  padding-top: 2px;
+}
+.deal .card {
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--crimson);
+  padding: 6px 9px;
+}
+.deal .when {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 6pt;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--crimson);
+}
+.deal .teams {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 8.5pt;
+  font-weight: 800;
+  margin: 2px 0 3px;
+}
+.deal .legs { font-size: 8.8pt; line-height: 1.3; }
+
+.path-box {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 9px 12px;
+  margin: 6px 0;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  break-inside: avoid;
+}
+.path-box h4 {
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.path-flow {
+  font-size: 8.5pt;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.path-flow .arrow { color: var(--gold); margin: 0 4px; }
+
+.lookahead-item {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 8.5pt;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-weight: 600;
+}
+.lookahead-item .vs { color: var(--muted); font-weight: 500; }
+
+.quote-col { display: flex; flex-direction: column; min-height: 0; }
+.quote-block {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.quote-block .qt {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 11pt;
+  line-height: 1.42;
+}
+.quote-block .qa {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.letter-sig {
+  margin-top: 12px;
+  font-style: italic;
+  font-size: 11pt;
+}
+
+.colophon {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 7pt;
+  color: var(--muted);
+  margin-top: 10px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== 01 COVER ===================== -->
+<section class="page cover">
+  <div class="cover-art">
+    <img src="assets/print/google-photos/01-cover-draft-debate-pointing.jpg" alt="Draft-weekend debate, Fredericksburg"/>
+  </div>
+  <div class="cover-scrim"></div>
+  <div class="cover-mast">
+    <div>
+      <div class="mast-brand">Lana Straw Weekly</div>
+      <div class="mast-sub">The Straw</div>
+    </div>
+    <div class="issue-badge">
+      <div class="wk">W1</div>
+      <div class="meta">Sep 2026<br/>Premier · Champeens</div>
+    </div>
+  </div>
+  <div class="cover-sells">
+    <div class="sell"><span class="tag">Scoreboard</span>179.86 — The Kickers n Jigba break the ceiling</div>
+    <div class="sell"><span class="tag">Transactions</span>Four Boom deals in 16 days</div>
+    <div class="sell"><span class="tag">NCT</span>Shiny vs Boom starts Week 2</div>
+  </div>
+  <div class="cover-hed-block">
+    <div class="cover-kicker">Draft Weekend Opens the Year</div>
+    <div class="cover-hed">POINT<br/>TAKEN</div>
+    <div class="cover-dek">Fredericksburg in pointing fingers, handwritten boards, and a league that still treats August like a pilgrimage.</div>
+  </div>
+  <div class="cover-bar">
+    <span>Mad Pooper · Flat Tire · Cult Induction</span>
+    <span>Issue · Week 1 · 2026</span>
+  </div>
+</section>
+
+<!-- ===================== 02 CONTENTS + LETTER ===================== -->
+<section class="page">
+  <div class="page-inner">
+    <div class="runhead"><span class="sec">From the Desk</span><span class="iss">Lana Straw Weekly · Week 1 · 2026</span></div>
+    <div class="flow">
+      <div class="grid-spread row-fixed">
+        <div>
+          <p class="kicker">Commissioner’s Letter</p>
+          <h1 class="hed" style="font-size:28pt;">Welcome back<br/>to the cult.</h1>
+          <p class="dek">Pilgrimage, Chop, Name Change Terror, and a first Sunday that already feels like a season.</p>
+          <div class="body">
+            <p>Every August the same miracle: grown adults treat a draft table in Fredericksburg like the only pilgrimage that still matters. Hands go up. Boards fill. Someone needs an air pump. Someone else is already in a skirt and a wig. The year does not begin with Week&nbsp;1. It begins with the weekend that makes Week&nbsp;1 feel like an epilogue.</p>
+            <p>This issue of <em>Lana Straw Weekly</em> — house title, no corporate cousin — is the ledger of that opening act. Draft-weekend lore. The Boom Baum carousel: four Premier deals in roughly sixteen days, all from the league database. Dual-league scoreboards from ESPN live while house scoring tables catch their breath. NCT and Chop as Discord announced them. Pull quotes preserved exactly.</p>
+            <p>Week&nbsp;1 is closed. The Kickers n Jigba put up 179.86. Otter sits atop Champeens. Boom asked for a fantasy therapist. Backdoor Heat found the floor. And the countdown remains the purest line in the server:</p>
+          </div>
+          <div class="pull">
+            <div class="q">“364 days until the best weekend of the year.”</div>
+            <div class="attr">— The Wheaton Dick Whacker · #general · Aug 30</div>
+          </div>
+          <div class="letter-sig">— The Straw editors<br/><span class="sans" style="font-size:7pt; font-style:normal; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted);">Compiled Sep 15, 2026 · CT</span></div>
+        </div>
+        <div>
+          <div class="sidebar">
+            <h3>Contents</h3>
+            <div class="toc-item"><span><span class="t">Feature: Draft Weekend</span><span class="d">Fredericksburg</span></span><span class="p">03</span></div>
+            <div class="toc-item"><span><span class="t">Photo Essay</span><span class="d">Night games</span></span><span class="p">04</span></div>
+            <div class="toc-item"><span><span class="t">Dispatch</span><span class="d">Wardrobe · Table</span></span><span class="p">05</span></div>
+            <div class="toc-item"><span><span class="t">Premier Scoreboard</span><span class="d">Week 1</span></span><span class="p">06</span></div>
+            <div class="toc-item"><span><span class="t">Champeens Scoreboard</span><span class="d">Week 1</span></span><span class="p">07</span></div>
+            <div class="toc-item"><span><span class="t">Boom Carousel + NCT</span><span class="d">Trades</span></span><span class="p">08</span></div>
+            <div class="toc-item"><span><span class="t">The Whisper Sheet</span><span class="d">Gossip</span></span><span class="p">09</span></div>
+            <div class="toc-item"><span><span class="t">Week 2 Lookahead</span><span class="d">Schedules</span></span><span class="p">10</span></div>
+            <hr class="rule"/>
+            <p style="font-size:7.5pt; margin:0; color:var(--muted);">Premier ESPN 1851323 · Champeens 1695026336. Scores: ESPN. Trades/drafts/NCT: Supabase. Quotes: Discord.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fig fig--fill" style="margin-top:0.2in;">
+        <div class="img-frame object-top">
+          <img src="assets/print/google-photos/10-draft-board-detail.jpg" alt="Draft board detail"/>
+        </div>
+        <p class="caption"><strong>WHO / WHERE:</strong> Handwritten auction board, Fredericksburg draft room — names not transcribed. <span class="cred">Google Photos · draft weekend</span></p>
+      </div>
+    </div>
+    <div class="folio"><span>Lana Straw Weekly · The Straw</span><span class="pg">02</span></div>
+  </div>
+</section>
+
+<!-- ===================== 03 FEATURE OPEN ===================== -->
+<section class="page">
+  <div class="page-inner">
+    <div class="runhead"><span class="sec">Feature</span><span class="iss">Draft Weekend · Fredericksburg</span></div>
+    <div class="flow">
+      <div class="row-fixed">
+        <p class="kicker">Package A · Longform</p>
+        <h1 class="hed">The Best Weekend<br/>of the Year</h1>
+        <p class="dek">Mad Pooper in Dublin. Flat tires on the interstate. Forty-ounce energy. A cult induction. And a countdown that starts the second the boards come down.</p>
+        <p class="byline">The Straw Staff · Reporting from Discord + Google Photos · Aug 28–30</p>
+      </div>
+
+      <div class="grid-feature row-fill">
+        <div class="fig fig--fill">
+          <div class="img-frame object-faces">
+            <img src="assets/print/google-photos/02-alt-draft-table-group.jpg" alt="Draft table group"/>
+          </div>
+          <p class="caption"><strong>WHO / WHERE:</strong> League members at the Fredericksburg draft table — boards, laptops, auction energy. <span class="cred">Google Photos · draft weekend · cover alternate</span></p>
+        </div>
+        <div class="rail">
+          <div class="fig fig--fill">
+            <div class="img-frame object-center">
+              <img src="assets/print/discord/02_Boom_Baum_1543012721715454103.jpg" alt="Flat tire on interstate"/>
+            </div>
+            <p class="caption"><strong>WHO / WHERE:</strong> Boom Baum — “Flat tire on interstate,” en route. <span class="cred">Discord @Boom Baum</span></p>
+          </div>
+          <div class="sidebar" style="margin-top:8px;">
+            <h3>Auction Snapshot</h3>
+            <p><strong>Premier:</strong> 192 picks · 18 keepers · $2,410 · max $76</p>
+            <p><strong>Champeens:</strong> 192 picks · 0 keepers · $2,376 · max $73</p>
+            <p style="margin-top:5px; font-size:7.5pt; color:var(--muted);">Source: Supabase draft aggregates</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fixed" style="margin-top:0.16in;">
+        <div class="body drop three-col">
+          <p>Before anyone touched a nominator list, The Jackal filed the cold open of the year from Dublin: a serial resort dooker, three elevators compromised, lobby compromised, staff armed with anti-poo powder, second night running. “I’m afraid that he is only getting more powerful.” Travel lore, elevated — or rather, not.</p>
+          <p>Closer to home, Amburgers requested an air pump for “the kicking balls in my luggage.” Jesus Neck Tattoo, ever the philosopher: “Not sure if I’m agreeing to a sexual act or genuine request for an inflation device.” The Wheaton Dick Whacker dialed the thermostat: more energy, or everyone’s running 40s — and he’d be drinking one either way.</p>
+          <p>Boom flew toward the weekend with a flat tire and a camera pointed at destiny. Outfit posts rolled in. Amburgers enjoyed a last night. OC002 asked the essential parental question: is my son going to the draft? The answer, as ever, was yes — and then some.</p>
+          <p>Inside the room: handwritten boards, laptops, pointing. Auction math from Supabase — Premier 192 picks, 18 keepers, $2,410 spent (max $76); Champeens 192 picks, zero keepers, $2,376 spent (max $73). Numbers from the database. Vibes from everywhere else.</p>
+          <p>On the Champeens side, induction was refreshingly honest. BTeamSpecialist: “Welcome to the cult .. errr league!” SJones: “Ngl- it does feel like I joined a cult.” Correct on both counts. Draft weekend is not a dress rehearsal for fantasy football. It is the sport.</p>
+        </div>
+      </div>
+    </div>
+    <div class="folio"><span>Feature · Draft Weekend</span><span class="pg">03</span></div>
+  </div>
+</section>
+
+<!-- ===================== 04 PHOTO ESSAY ===================== -->
+<section class="page">
+  <div class="page-inner">
+    <div class="runhead"><span class="sec">Photo Essay</span><span class="iss">Night Games · Draft Weekend</span></div>
+    <div class="flow">
+      <div class="row-fixed">
+        <p class="kicker">After Dark</p>
+        <h1 class="hed" style="font-size:24pt; margin-bottom:8px;">Bikes, Planks,<br/>Watermelon</h1>
+      </div>
+
+      <div class="essay-layout row-fixed">
+        <div class="fig">
+          <div class="img-frame essay-hero object-faces">
+            <img src="assets/print/google-photos/05-night-bike-action.jpg" alt="Night bike action"/>
+          </div>
+          <p class="caption"><strong>WHO / WHERE:</strong> Night driveway — rider under the hoop, spectators, long shadows. <span class="cred">Google Photos · draft weekend</span></p>
+        </div>
+        <div class="essay-stack">
+          <div class="fig">
+            <div class="img-frame essay-side object-center">
+              <img src="assets/print/google-photos/06-night-bike-group-action.jpg" alt="Bike group action"/>
+            </div>
+            <p class="caption"><strong>WHO / WHERE:</strong> Two riders crossing; more motion behind. <span class="cred">Google Photos · draft weekend</span></p>
+          </div>
+          <div class="fig">
+            <div class="img-frame essay-side object-center">
+              <img src="assets/print/google-photos/07-poolside-night-group.jpg" alt="Poolside night"/>
+            </div>
+            <p class="caption"><strong>WHO / WHERE:</strong> Night pool game — plank over water. <span class="cred">Google Photos · draft weekend</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-spread-r row-fill" style="align-items:stretch; margin-top:0.16in;">
+        <div class="fig fig--fill">
+          <div class="img-frame object-center">
+            <img src="assets/print/google-photos/08-poolside-watermelon-candid.jpg" alt="Watermelon candid"/>
+          </div>
+          <p class="caption"><strong>WHO / WHERE:</strong> Poolside watermelon break — food, football, candid pause. <span class="cred">Google Photos · draft weekend</span></p>
+        </div>
+        <div class="pull" style="margin:4px 0 0; align-self:start;">
+          <div class="q" style="font-size:13.5pt;">“I need a little more energy in here, otherwise everyone running fuckin 40’s when I get there. I’ll be drinkin a 40”</div>
+          <div class="attr">— The Wheaton Dick Whacker · #general · Aug 28</div>
+        </div>
+      </div>
+    </div>
+    <div class="folio"><span>Photo Essay</span><span class="pg">04</span></div>
+  </div>
+</section>
+
+<!-- ===================== 05 DISPATCH / WARDROBE ===================== -->
+<section class="page">
+  <div class="page-inner">
+    <div class="runhead"><span class="sec">Dispatch</span><span class="iss">Wardrobe · Cult · Table</span></div>
+    <div class="flow">
+      <div class="row-fixed">
+        <p class="kicker">Package A · Cont.</p>
+        <h1 class="hed" style="font-size:24pt; margin-bottom:6px;">Skirt, Wig,<br/>Parental Confusion</h1>
+        <p class="dek" style="margin-bottom:8px;">Daylight social table, portrait of the room, and the Discord wardrobe posts that ESPN will never print.</p>
+      </div>
+
+      <div class="grid-feature row-fill">
+        <div class="fig fig--fill">
+          <div class="img-frame object-low">
+            <img src="assets/print/google-photos/09-draft-room-portrait-context.jpg" alt="Draft room portrait"/>
+          </div>
+          <p class="caption"><strong>WHO / WHERE:</strong> Vertical draft-room view — boards, seated participants, laptop foreground. <span class="cred">Google Photos · draft weekend</span></p>
+        </div>
+        <div class="rail">
+          <div class="fig fig--fill">
+            <div class="img-frame object-faces">
+              <img src="assets/print/google-photos/04-outdoor-draft-social-table.jpg" alt="Outdoor social table"/>
+            </div>
+            <p class="caption"><strong>WHO / WHERE:</strong> Outdoor daylight table — cups, drinks, draft-weekend social. <span class="cred">Google Photos · draft weekend</span></p>
+          </div>
+          <div class="body" style="font-size:9.5pt; margin-top:8px;">
+            <p>Amburgers reported the postgame review to the parents: Zach wanted it known he was forced into the outfit. Parents: who? Amburgers: the guy in the skirt and wig. Parents: oh — we thought that was a girl. Public kudos to Zeethemoney for crushing it.</p>
+          </div>
+          <div class="pull" style="margin:6px 0;">
+            <div class="q" style="font-size:12pt;">“Welcome to the cult .. errr league!”</div>
+            <div class="attr">— BTeamSpecialist · #lscl-only-chat · Aug 30</div>
+          </div>
+          <div class="pull" style="margin:6px 0 0;">
+            <div class="q" style="font-size:12pt;">“Ngl- it does feel like I joined a cult”</div>
+            <div class="attr">— SJones · #lscl-only-chat · Aug 30</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fixed" style="margin-top:0.16in;">
+        <p class="kicker" style="margin-bottom:4px;">Pull-art · Discord wardrobe</p>
+        <div class="pull-art-row">
+          <div class="fig">
+            <div class="img-frame pull-art object-top">
+              <img src="assets/print/discord/03_The_Wheaton_Dick_Whacker_1542713492920864830.jpg" alt="Day 1 outfit"/>
+            </div>
+            <p class="caption"><strong>WHO / WHERE:</strong> “Got my day 1 outfit ready to go!” <span class="cred">Discord @The Wheaton Dick Whacker</span></p>
+          </div>
+          <div class="fig">
+            <div class="img-frame pull-art object-top">
+              <img src="assets/print/discord/04_Amburgers_1542700608262242386.jpg" alt="Last night"/>
+            </div>
+            <p class="caption"><strong>WHO / WHERE:</strong> “Enjoying my last night …” <span class="cred">Discord @Amburgers</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="folio"><span>Dispatch · Draft Weekend</span><span class="pg">05</span></div>
+  </div>
+</section>
+
+<!-- ===================== 06 PREMIER SCOREBOARD ===================== -->
+<section class="page">
+  <div class="page-inner">
+    <div class="runhead"><span class="sec">Scoreboard</span><span class="iss">Premier · Week 1 · ESPN 1851323</span></div>
+    <div class="flow airy airy-plus">
+      <div class="row-fixed">
+        <p class="kicker">Package C · Opening Sunday</p>
+        <h1 class="hed" style="font-size:26pt;">179.86: The Ceiling Broke</h1>
+        <p class="dek">The Kickers n Jigba opened nuclear. Boom walked into Diamond Dogs and found Monty on the other side. Backdoor Heat found the floor.</p>
+        <p class="source-note">ESPN supplement — scores, standings, top scorers, Week 2 schedule. House DB week-1 scoring still 0.0 / NULL (pending sync). Treat as FINAL (currentMatchupPeriod=2). Live names used (e.g. The Scott Ramsays).</p>
+
+        <div class="stat-strip">
+          <div class="stat-box"><div class="n">179.86</div><div class="l">Kickers n Jigba PF</div></div>
+          <div class="stat-box"><div class="n">37.66</div><div class="l">Josh Allen (top)</div></div>
+          <div class="stat-box"><div class="n">89.50</div><div class="l">Backdoor Heat PF</div></div>
+          <div class="stat-box"><div class="n">98.80</div><div class="l">Boom vs Dogs</div></div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h2 class="subhed" style="font-size:12pt;">Matchups</h2>
+            <table class="score-table">
+              <thead><tr><th>Matchup</th><th class="num">Score</th><th>Winner</th></tr></thead>
+              <tbody>
+                <tr class="win"><td>Jackin' Goff @ All Gold, No Glory</td><td class="num">123.76–145.76</td><td class="winner">All Gold, No Glory</td></tr>
+                <tr class="win"><td>The Scott Ramsays @ The Guy Next Door</td><td class="num">99.54–89.52</td><td class="winner">The Scott Ramsays</td></tr>
+                <tr class="win"><td>Texas Tornado's Bush @ H Town Holy Rollers</td><td class="num">124.06–97.30</td><td class="winner">Texas Tornado's Bush</td></tr>
+                <tr class="win"><td>Fart Toot Squeek @ The Kickers n Jigba</td><td class="num">136.90–179.86</td><td class="winner">The Kickers n Jigba</td></tr>
+                <tr class="win"><td>Boom Baum @ Diamond Dogs</td><td class="num">98.80–133.86</td><td class="winner">Diamond Dogs</td></tr>
+                <tr class="win"><td>Shiny Hineys @ Backdoor Heat</td><td class="num">91.56–89.50</td><td class="winner">Shiny Hineys</td></tr>
+              </tbody>
+            </table>
+            <p class="caption">“I can’t believe how low Backdoor heat scored. Lowest in the league by a mile” — The Guy Next Door, Sep 15.</p>
+          </div>
+          <div>
+            <h2 class="subhed" style="font-size:12pt;">Standings</h2>
+            <table class="standings">
+              <thead><tr><th>#</th><th>Team</th><th class="num">W-L</th><th class="num">PF</th><th class="num">PA</th></tr></thead>
+              <tbody>
+                <tr class="playoff"><td>1</td><td>The Kickers n Jigba</td><td class="num">1-0</td><td class="num">179.86</td><td class="num">136.90</td></tr>
+                <tr class="playoff"><td>2</td><td>All Gold, No Glory</td><td class="num">1-0</td><td class="num">145.76</td><td class="num">123.76</td></tr>
+                <tr class="playoff"><td>3</td><td>Diamond Dogs</td><td class="num">1-0</td><td class="num">133.86</td><td class="num">98.80</td></tr>
+                <tr class="playoff"><td>4</td><td>Texas Tornado's Bush</td><td class="num">1-0</td><td class="num">124.06</td><td class="num">97.30</td></tr>
+                <tr class="playoff"><td>5</td><td>The Scott Ramsays</td><td class="num">1-0</td><td class="num">99.54</td><td class="num">89.52</td></tr>
+                <tr class="playoff"><td>6</td><td>Shiny Hineys</td><td class="num">1-0</td><td class="num">91.56</td><td class="num">89.50</td></tr>
+                <tr><td>7</td><td>Fart Toot Squeek</td><td class="num">0-1</td><td class="num">136.90</td><td class="num">179.86</td></tr>
+                <tr><td>8</td><td>Jackin' Goff</td><td class="num">0-1</td><td class="num">123.76</td><td class="num">145.76</td></tr>
+                <tr><td>9</td><td>Boom Baum</td><td class="num">0-1</td><td class="num">98.80</td><td class="num">133.86</td></tr>
+                <tr><td>10</td><td>H Town Holy Rollers</td><td class="num">0-1</td><td class="num">97.30</td><td class="num">124.06</td></tr>
+                <tr><td>11</td><td>The Guy Next Door</td><td class="num">0-1</td><td class="num">89.52</td><td class="num">99.54</td></tr>
+                <tr><td>12</td><td>Backdoor Heat</td><td class="num">0-1</td><td class="num">89.50</td><td class="num">91.56</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="row-fixed">
+        <hr class="rule-thick"/>
+        <h2 class="subhed" style="font-size:11pt;">Top scorers · ESPN supplement</h2>
+        <div class="grid-3 scorer-list" style="margin-top:6px;">
+          <div><strong>37.66</strong> Josh Allen · Kickers n Jigba</div>
+          <div><strong>35.80</strong> Derrick Henry · Scott Ramsays</div>
+          <div><strong>35.60</strong> Kenneth Walker III · Backdoor Heat</div>
+          <div><strong>32.90</strong> D'Andre Swift · Kickers n Jigba</div>
+          <div><strong>32.10</strong> Jahmyr Gibbs · Fart Toot Squeek</div>
+          <div><strong>31.70</strong> Christian Watson · All Gold</div>
+          <div><strong>30.70</strong> Ashton Jeanty · All Gold</div>
+          <div><strong>29.60</strong> Jaxson Dart · Fart Toot Squeek</div>
+          <div><strong>27.72</strong> Jalen Hurts · Guy Next Door</div>
+          <div><strong>27.40</strong> David Montgomery · Diamond Dogs</div>
+        </div>
+        <p class="source-note" style="margin:10px 0 0;">Name-sync: Supabase still stores Thomas's Terrific Team; ESPN live = The Scott Ramsays. Scoreboard uses ESPN live names.</p>
+      </div>
+    </div>
+    <div class="folio"><span>Premier Scoreboard</span><span class="pg">06</span></div>
+  </div>
+</section>
+
+<!-- ===================== 07 CHAMPEENS SCOREBOARD ===================== -->
+<section class="page">
+  <div class="page-inner">
+    <div class="runhead"><span class="sec">Scoreboard</span><span class="iss">Champeens · Week 1 · ESPN 1695026336</span></div>
+    <div class="flow airy">
+      <div class="row-fixed">
+        <p class="kicker">Package C · Cont.</p>
+        <h1 class="hed" style="font-size:26pt;">Otter Atop.<br/>Jerry by a Whisker.</h1>
+        <p class="dek">140.10 crowns Otter. Neaux Gold edges Jerry GM + Jerry Owner 133.46–133.16. The bylaws, as always, punish conviction.</p>
+        <p class="source-note">ESPN supplement — scores, standings, top scorers, Week 2. FINAL as of Sep 15 fetch. Live renames (Neaux Gold, All Glory / Madison Beer / Chase Is My Leader) may differ from DB (No Gold / My Naber Tetairo / Oscar’s Outrageous).</p>
+
+        <div class="stat-strip">
+          <div class="stat-box"><div class="n">140.10</div><div class="l">Otter PF</div></div>
+          <div class="stat-box"><div class="n">0.30</div><div class="l">Jerry margin lost</div></div>
+          <div class="stat-box"><div class="n">39.26</div><div class="l">Caleb Williams</div></div>
+          <div class="stat-box"><div class="n">90.12</div><div class="l">Jordan's Trainers</div></div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h2 class="subhed" style="font-size:12pt;">Matchups</h2>
+            <table class="score-table">
+              <thead><tr><th>Matchup</th><th class="num">Score</th><th>Winner</th></tr></thead>
+              <tbody>
+                <tr class="win"><td>Chase Is My Leader @ Amburgers</td><td class="num">95.30–121.24</td><td class="winner">Amburgers</td></tr>
+                <tr class="win"><td>Prime Lime Time @ Mac Attack</td><td class="num">107.80–117.66</td><td class="winner">Mac Attack</td></tr>
+                <tr class="win"><td>Cowboys Sept Dreams @ Jordan's Trainers</td><td class="num">128.46–90.12</td><td class="winner">Cowboys Sept Dreams</td></tr>
+                <tr class="win"><td>Jerry GM + Jerry Owner @ Neaux Gold</td><td class="num">133.16–133.46</td><td class="winner">Neaux Gold, All Glory</td></tr>
+                <tr class="win"><td>The Jackal @ Otter</td><td class="num">120.66–140.10</td><td class="winner">Otter</td></tr>
+                <tr class="win"><td>Madison Beer @ OKC Schlegstas</td><td class="num">95.10–91.62</td><td class="winner">Madison Beer</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h2 class="subhed" style="font-size:12pt;">Standings</h2>
+            <table class="standings">
+              <thead><tr><th>#</th><th>Team</th><th class="num">W-L</th><th class="num">PF</th><th class="num">PA</th></tr></thead>
+              <tbody>
+                <tr class="playoff"><td>1</td><td>Otter</td><td class="num">1-0</td><td class="num">140.10</td><td class="num">120.66</td></tr>
+                <tr class="playoff"><td>2</td><td>Neaux Gold, All Glory</td><td class="num">1-0</td><td class="num">133.46</td><td class="num">133.16</td></tr>
+                <tr class="playoff"><td>3</td><td>Cowboys September Dreams</td><td class="num">1-0</td><td class="num">128.46</td><td class="num">90.12</td></tr>
+                <tr class="playoff"><td>4</td><td>Amburgers</td><td class="num">1-0</td><td class="num">121.24</td><td class="num">95.30</td></tr>
+                <tr class="playoff"><td>5</td><td>Mac Attack</td><td class="num">1-0</td><td class="num">117.66</td><td class="num">107.80</td></tr>
+                <tr class="playoff"><td>6</td><td>Madison Beer</td><td class="num">1-0</td><td class="num">95.10</td><td class="num">91.62</td></tr>
+                <tr><td>7</td><td>Jerry GM + Jerry Owner</td><td class="num">0-1</td><td class="num">133.16</td><td class="num">133.46</td></tr>
+                <tr><td>8</td><td>The Jackal</td><td class="num">0-1</td><td class="num">120.66</td><td class="num">140.10</td></tr>
+                <tr><td>9</td><td>Prime Lime Time</td><td class="num">0-1</td><td class="num">107.80</td><td class="num">117.66</td></tr>
+                <tr><td>10</td><td>Chase Is My Leader</td><td class="num">0-1</td><td class="num">95.30</td><td class="num">121.24</td></tr>
+                <tr><td>11</td><td>OKC Schlegstas</td><td class="num">0-1</td><td class="num">91.62</td><td class="num">95.10</td></tr>
+                <tr><td>12</td><td>Jordan's Trainers</td><td class="num">0-1</td><td class="num">90.12</td><td class="num">128.46</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="row-fixed">
+        <hr class="rule-thick"/>
+        <div class="grid-2">
+          <div>
+            <h2 class="subhed" style="font-size:11pt;">Top scorers · ESPN</h2>
+            <div class="scorer-list" style="margin-top:4px;">
+              <div><strong>39.26</strong> Caleb Williams · Neaux Gold</div>
+              <div><strong>37.66</strong> Josh Allen · Cowboys Sept Dreams</div>
+              <div><strong>35.80</strong> Derrick Henry · Mac Attack</div>
+              <div><strong>35.60</strong> Kenneth Walker III · Otter</div>
+              <div><strong>32.90</strong> D'Andre Swift · Cowboys Sept Dreams</div>
+              <div><strong>32.10</strong> Jahmyr Gibbs · Neaux Gold</div>
+              <div><strong>31.70</strong> Christian Watson · Amburgers</div>
+              <div><strong>30.70</strong> Ashton Jeanty · Madison Beer</div>
+              <div><strong>30.10</strong> Trevor Lawrence · Otter</div>
+              <div><strong>29.60</strong> Jaxson Dart · Madison Beer</div>
+            </div>
+          </div>
+          <div>
+            <div class="sidebar">
+              <h3>House Rules Humor</h3>
+              <p style="font-family:Georgia,serif; font-style:italic; font-size:10.5pt; line-height:1.3;">“the bylaws for the champeens league requires that a player will pop off only if you take him out of your starting lineup or talk yourself out of putting them in”</p>
+              <p class="sans" style="font-size:6.5pt; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-top:6px;">— BTeamSpecialist · #lscl-only-chat · Sep 13</p>
+            </div>
+            <div class="sidebar dark" style="margin-top:8px;">
+              <h3>Podcast Spillover</h3>
+              <p style="font-size:9pt; font-style:italic;">Jerry, rolling down the window to badge into the garage, just as Scott says “Jesus Neck Tattoo and Jackin’ Goff” — and someone definitely heard that.</p>
+              <p class="sans" style="font-size:6.5pt; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-top:4px;">Jerry GM + Jerry Owner · #podcast · Sep 3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="folio"><span>Champeens Scoreboard</span><span class="pg">07</span></div>
+  </div>
+</section>
+
+<!-- ===================== 08 BOOM CAROUSEL + NCT ===================== -->
+<section class="page">
+  <div class="page-inner">
+    <div class="runhead"><span class="sec">Transactions</span><span class="iss">Boom Carousel · NCT · Chop</span></div>
+    <div class="flow">
+      <div class="row-fixed">
+        <p class="kicker">Package B</p>
+        <h1 class="hed" style="font-size:26pt;">Keep Doubting<br/>the Boom</h1>
+        <p class="dek" style="margin-bottom:8px;">Four Premier Boom deals in ~16 days. A door meme. Love-as-keeper thesis. Tornado’s knife twist. Shiny NCT locked for Week 2.</p>
+      </div>
+
+      <div class="grid-spread row-fill" style="grid-template-columns:1.28fr 1fr; align-items:stretch;">
+        <div class="timeline">
+          <div class="deal">
+            <div class="num">01</div>
+            <div class="card">
+              <div class="when">Premier · Aug 30 · Supabase</div>
+              <div class="teams">All Gold, No Glory ↔ Boom Baum</div>
+              <div class="legs">All Gold ← <strong>TreVeyon Henderson</strong> · Boom ← <strong>Cam Skattebo</strong></div>
+            </div>
+          </div>
+          <div class="deal">
+            <div class="num">02</div>
+            <div class="card">
+              <div class="when">Premier · Aug 31 · Supabase</div>
+              <div class="teams">Diamond Dogs ↔ Boom Baum</div>
+              <div class="legs">Dogs ← <strong>Justin Jefferson, David Montgomery, Deebo Samuel Sr.</strong><br/>Boom ← <strong>Aaron Jones Sr., Woody Marks, Ja'Marr Chase</strong></div>
+            </div>
+          </div>
+          <div class="deal">
+            <div class="num">03</div>
+            <div class="card">
+              <div class="when">Premier · Sep 1 · Supabase</div>
+              <div class="teams">Texas Tornado's Bush ↔ Boom Baum</div>
+              <div class="legs">Tornado ← <strong>Ja'Marr Chase, Cam Skattebo</strong><br/>Boom ← <strong>Michael Pittman Jr., Drake London, Jeremiyah Love</strong></div>
+            </div>
+          </div>
+          <div class="deal">
+            <div class="num">04</div>
+            <div class="card">
+              <div class="when">Premier · Sep 15 · Supabase</div>
+              <div class="teams">The Guy Next Door ↔ Boom Baum</div>
+              <div class="legs">TGND ← <strong>Dylan Sampson, Drake London</strong><br/>Boom ← <strong>Caleb Williams, Tetairoa McMillan</strong></div>
+            </div>
+          </div>
+          <div class="path-box">
+            <h4>Chase / London Path</h4>
+            <div class="path-flow">
+              Chase: Dogs deal <span class="arrow">→</span> Boom <span class="arrow">→</span> Tornado (Deal 03)<br/>
+              London: Tornado deal <span class="arrow">→</span> Boom <span class="arrow">→</span> Guy Next Door (Deal 04)<br/>
+              Love stays (for now) — “Unless he’s relegated.”
+            </div>
+          </div>
+          <p class="source-note" style="margin:0;">Also Champeens (DB names): My Naber Tetairo ↔ Cowboys September Dreams (Sep 1); No Gold, All Glory ↔ Amburgers (Sep 11).</p>
+          <p class="caption" style="margin-top:6px;">Fart Toot Squeek on Love retention: 33% in four weeks; “for the rest of the year…uh…no chance.”</p>
+        </div>
+        <div class="rail">
+          <div class="fig fig--fill">
+            <div class="img-frame object-center">
+              <img src="assets/print/discord/07_Diamond_Dogs_1543987014687391814.jpg" alt="Door meme"/>
+            </div>
+            <p class="caption"><strong>WHO / WHERE:</strong> “What shows up at your door… when you don’t respond to a Boom trade offer within 20 minutes.” <span class="cred">Discord @Diamond Dogs</span></p>
+          </div>
+          <div class="pull" style="margin:8px 0;">
+            <div class="q" style="font-size:12pt;">“All right, keep doubting the Boom I dare you”</div>
+            <div class="attr">— Boom Baum · #trade-talk · Sep 1</div>
+          </div>
+          <div class="fig fig--fill">
+            <div class="img-frame object-center">
+              <img src="assets/print/discord/12_Texas_Tornados_Bush_1543610548518916156.jpg" alt="Tornado trade vibe"/>
+            </div>
+            <p class="caption"><strong>WHO / WHERE:</strong> Texas Tornado’s Bush trade-thread attachment. <span class="cred">Discord @Texas Tornado’s Bush</span></p>
+          </div>
+          <div class="pull" style="margin:8px 0 0;">
+            <div class="q" style="font-size:10.5pt;">“It was actually Jeremiah love and Michael Pittman Junior that I really wanted in the draft. Drake is just extra juice.”</div>
+            <div class="attr">— Boom Baum · #trade-talk · Sep 1</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fixed" style="margin-top:0.12in;">
+        <hr class="rule-thick" style="margin:0 0 10px;"/>
+        <div class="grid-2">
+          <div class="sidebar tight">
+            <h3>Shiny NCT — Locked Week 2</h3>
+            <p><span class="chip">Premier</span> Shiny Hineys (A.J. Brown, Chris Olave) vs Boom Baum (Jeremiyah Love, Drake London). Four counting weeks from NFL Week 2; cumulative ESPN points; week counts only if all four play; 2-week name+logo. Amended to skip Week 1 (Love ankle / Seattle). <em>Discord bot announcement.</em></p>
+          </div>
+          <div class="sidebar dark tight">
+            <h3>More NCT / Chop</h3>
+            <p><strong>W1 NCT:</strong> Thomas's Terrific Team vs H Town Holy Rollers (1-week name+logo). <strong>W2:</strong> Thomas’s vs The Kickers n Jigba. Confirm in nct_* when scoring ingest catches up.</p>
+            <p style="margin-top:5px;"><strong>Champeens W4:</strong> Jerry GM + Jerry Owner vs Oscar's Outrageous Team — locked.</p>
+            <p style="margin-top:5px;"><strong>Chop:</strong> 12 Premier+Champeens duos, ~11 weeks, snake draft Mon 8:30 CT (Fart Toot Squeek). Early-chop vibes = color only until chop_* confirms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="folio"><span>Boom Carousel</span><span class="pg">08</span></div>
+  </div>
+</section>
+
+<!-- ===================== 09 GOSSIP ===================== -->
+<section class="page">
+  <div class="page-inner">
+    <div class="runhead"><span class="sec">The Whisper Sheet</span><span class="iss">Exact Discord · Aug 28 – Sep 15</span></div>
+    <div class="flow">
+      <div class="row-fixed">
+        <p class="kicker">Gossip Column</p>
+        <h1 class="hed" style="font-size:26pt;">Quotes We Refuse<br/>to Paraphrase</h1>
+        <p class="dek">From Mad Pooper to Monday trauma. Attribution preserved. Nothing invented.</p>
+      </div>
+
+      <div class="grid-2 row-fill" style="align-items:stretch; margin-top:4px;">
+        <div class="quote-col" style="justify-content:space-between;">
+          <div class="quote-block">
+            <div class="qt">“There is a serial, resort, dooker on the loose in Dublin. I’m afraid that he is only getting more powerful.”</div>
+            <div class="qa">The Jackal · #general · Aug 28 · Mad Pooper cold open</div>
+          </div>
+          <div class="quote-block">
+            <div class="qt">“Can someone bring an air pump? Gonna deflate my balls…the kicking balls in my luggage and I can’t find my pump”</div>
+            <div class="qa">Amburgers · #general · Aug 28</div>
+          </div>
+          <div class="quote-block">
+            <div class="qt">“Not sure if I’m agreeing to a sexual act or genuine request for an inflation device”</div>
+            <div class="qa">Jesus Neck Tattoo · #general · Aug 28</div>
+          </div>
+          <div class="quote-block">
+            <div class="qt">“Dammit, why won’t anybody trade with me”</div>
+            <div class="qa">Boom Baum · #general · Aug 30 · carousel setup</div>
+          </div>
+          <div class="quote-block" style="margin-bottom:0; border-bottom:none; padding-bottom:0;">
+            <div class="qt">“What are the chances that Love is on Booms team in 4 weeks? I’d say 33%. And for the rest of the year…uh…no chance”</div>
+            <div class="qa">Fart Toot Squeek · #trade-talk · Sep 2</div>
+          </div>
+        </div>
+        <div class="quote-col" style="justify-content:space-between;">
+          <div class="quote-block">
+            <div class="qt">“Does anyone have any therapist referrals for fantasy football specific trauma? I am feeling heavy Monday depression from my ass kicking and need further support…”</div>
+            <div class="qa">Boom Baum · #general · Sep 14 · after Dogs loss</div>
+          </div>
+          <div class="quote-block">
+            <div class="qt">“As the reigning knockout league champion from last season, I’d like to say I hate F’in fantasy football and I cannot believe this year ends like this after the first week. Unreal….”</div>
+            <div class="qa">Boom Baum · #general · Sep 15 · Chop vibe (color only)</div>
+          </div>
+          <div class="quote-block">
+            <div class="qt">“I’m on track to score more points than any other team in the peen league but Scott diDnT LiKe mY tEam”</div>
+            <div class="qa">Jerry GM + Jerry Owner · #podcast · Sep 14</div>
+          </div>
+          <div class="pull-art-row row-fill" style="max-height:3.5in; align-items:stretch; margin-top:6px;">
+            <div class="fig fig--fill">
+              <div class="img-frame object-faces">
+                <img src="assets/print/discord/01_Boom_Baum_1542941787943993554.jpg" alt="Boom arrival"/>
+              </div>
+              <p class="caption"><strong>WHO / WHERE:</strong> Boom Baum travel/arrival — “coming for you.” <span class="cred">Discord @Boom Baum · Aug 28</span></p>
+            </div>
+            <div class="fig fig--fill">
+              <div class="img-frame object-center">
+                <img src="assets/print/discord/06_Fart_Toot_Squeek_1543611615130423327.jpg" alt="Bee gag"/>
+              </div>
+              <p class="caption"><strong>WHO / WHERE:</strong> Memetic warm-up — “if he was a bee.” <span class="cred">Discord @Fart Toot Squeek</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="folio"><span>Gossip</span><span class="pg">09</span></div>
+  </div>
+</section>
+
+<!-- ===================== 10 WEEK 2 + CLOSER ===================== -->
+<section class="page">
+  <div class="page-inner">
+    <div class="runhead"><span class="sec">Lookahead</span><span class="iss">Week 2 · NCT Countdown</span></div>
+    <div class="flow">
+      <div class="row-fixed">
+        <p class="kicker">Next Sunday</p>
+        <h1 class="hed" style="font-size:26pt;">Sunday, Reload.</h1>
+        <p class="dek">Shiny vs Boom NCT starts counting. Thomas’s vs Kickers n Jigba on the nameplate line. Schedules from ESPN.</p>
+      </div>
+
+      <div class="grid-2 row-fill" style="align-items:stretch; margin-top:4px;">
+        <div class="rail">
+          <h2 class="subhed" style="font-size:13pt;">Premier Week 2</h2>
+          <div class="lookahead-item"><span>Jackin' Goff</span><span class="vs">@ The Guy Next Door</span></div>
+          <div class="lookahead-item"><span>All Gold, No Glory</span><span class="vs">@ H Town Holy Rollers</span></div>
+          <div class="lookahead-item"><span>The Scott Ramsays</span><span class="vs">@ The Kickers n Jigba</span></div>
+          <div class="lookahead-item"><span>Texas Tornado's Bush</span><span class="vs">@ Diamond Dogs</span></div>
+          <div class="lookahead-item"><span>Fart Toot Squeek</span><span class="vs">@ Backdoor Heat</span></div>
+          <div class="lookahead-item"><span>Shiny Hineys</span><span class="vs">@ Boom Baum</span></div>
+          <div class="sidebar" style="margin-top:auto;">
+            <h3>NCT Watch</h3>
+            <p>Shiny (Brown/Olave) vs Boom (Love/London) begins Week 2 counting. Same slate: Shiny @ Boom — narrative collision optional, NCT math mandatory.</p>
+            <p style="margin-top:5px;">Week 2 one-week NCT: Thomas's Terrific Team vs The Kickers n Jigba (announced; confirm DB application).</p>
+          </div>
+        </div>
+        <div class="rail">
+          <h2 class="subhed" style="font-size:13pt;">Champeens Week 2</h2>
+          <div class="lookahead-item"><span>Prime Lime Time</span><span class="vs">@ Chase Is My Leader</span></div>
+          <div class="lookahead-item"><span>Amburgers</span><span class="vs">@ Cowboys September Dreams</span></div>
+          <div class="lookahead-item"><span>Mac Attack</span><span class="vs">@ Jerry GM + Jerry Owner</span></div>
+          <div class="lookahead-item"><span>Jordan's Trainers</span><span class="vs">@ The Jackal</span></div>
+          <div class="lookahead-item"><span>Neaux Gold, All Glory</span><span class="vs">@ Madison Beer</span></div>
+          <div class="lookahead-item"><span>Otter</span><span class="vs">@ OKC Schlegstas</span></div>
+          <div class="fig fig--fill" style="margin-top:12px;">
+            <div class="img-frame object-faces">
+              <img src="assets/print/google-photos/03-draft-room-wide-group.jpg" alt="Draft room wide"/>
+            </div>
+            <p class="caption"><strong>WHO / WHERE:</strong> Wide draft-room energy — where the year starts. <span class="cred">Google Photos · draft weekend · cover alternate</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fixed" style="margin-top:0.14in;">
+        <hr class="rule-thick" style="margin:0 0 12px;"/>
+        <div class="grid-spread" style="align-items:stretch;">
+          <div class="fig">
+            <div class="img-frame pull-art object-center">
+              <img src="assets/print/discord/08_Diamond_Dogs_1547990762833322134.jpg" alt="Draft day action"/>
+            </div>
+            <p class="caption"><strong>WHO / WHERE:</strong> “Just had to post this draft day action shot I got courtesy of Dallas.” <span class="cred">Discord @Diamond Dogs</span></p>
+          </div>
+          <div style="display:flex; flex-direction:column; justify-content:center;">
+            <div class="pull" style="border-left-width:4px; margin:0;">
+              <div class="q" style="font-size:16pt;">“364 days until the best weekend of the year.”</div>
+              <div class="attr">— The Wheaton Dick Whacker · Aug 30</div>
+            </div>
+            <p class="colophon">
+              LANA STRAW WEEKLY · THE STRAW · WEEK 1 · 2026<br/>
+              Photography: Google Photos curated set + Discord attachments<br/>
+              Scores: ESPN API · Trades/drafts: Supabase · Quotes: Discord<br/>
+              Not affiliated with Sports Illustrated or any ESPN property beyond public league data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="folio"><span>Week 2 · End of Issue</span><span class="pg">10</span></div>
+  </div>
+</section>
+
+</body>
+</html>
