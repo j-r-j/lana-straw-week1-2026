@@ -49,6 +49,7 @@ html, body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 10.5pt;
   line-height: 1.5;
+  overflow-x: hidden;
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
   color-adjust: exact !important;
@@ -57,8 +58,10 @@ html, body {
 @page { size: letter portrait; margin: 0; }
 
 @media print {
-  html, body { background: white; }
+  html, body { background: white; overflow: visible; }
   .share-bar { display: none !important; }
+  .rack { padding: 0 !important; }
+  .sheet { zoom: 1 !important; }
   .page {
     break-after: page;
     page-break-after: always;
@@ -110,6 +113,16 @@ html, body {
 .share-bar a.top {
   border: 1px solid #c9a227;
   color: #c9a227;
+}
+
+.rack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0 48px;
+}
+.sheet {
+  zoom: var(--pagescale, 1);
 }
 
 .page {
@@ -717,6 +730,7 @@ h2.subhed {
   </div>
 </div>
 <a id="top"></a>
+<div class="rack"><div class="sheet">
 
 <!-- 01 COVER -->
 <section class="page cover">
@@ -1505,5 +1519,19 @@ h2.subhed {
   </div>
 </section>
 
+</div></div>
+<script>
+(function () {
+  function fit() {
+    var pageWidth = 816; /* 8.5in at 96dpi */
+    var pad = 16;
+    var scale = Math.min(1, (window.innerWidth - pad) / pageWidth);
+    document.documentElement.style.setProperty("--pagescale", String(scale));
+  }
+  fit();
+  window.addEventListener("resize", fit);
+  window.addEventListener("orientationchange", fit);
+})();
+</script>
 </body>
 </html>
