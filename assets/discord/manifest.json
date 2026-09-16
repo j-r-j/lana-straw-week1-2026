@@ -1,0 +1,297 @@
+{
+  "downloaded_at_utc": "2026-09-15T21:25:01.584220+00:00",
+  "photos": [
+    {
+      "w": 2880,
+      "h": 2160,
+      "filename": "IMG_5217.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1542941787415646248/IMG_5217.jpg?ex=6aaacb04&is=6aa97984&hm=3196fa245a434a4f9a5fe6c4f74e85fa164a2b601a6501e0439e54b1fff9b446&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1542941787415646248/IMG_5217.jpg?ex=6aaacb04&is=6aa97984&hm=3196fa245a434a4f9a5fe6c4f74e85fa164a2b601a6501e0439e54b1fff9b446&",
+      "content_type": "image/jpeg",
+      "size": 358107,
+      "author": "Boom Baum",
+      "author_id": "1276930481228877855",
+      "timestamp": "2026-08-28T16:59:48.718000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1542941787943993554",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1542941787943993554",
+      "caption": "<@1522652089082318932> and <@1276930481228877855> are coming for you biatches..",
+      "reactions": [
+        {
+          "name": "\ud83d\udd25",
+          "count": 7
+        }
+      ],
+      "local_path": "/workspace/lana-week1/assets/discord/01_Boom_Baum_1542941787943993554.jpg",
+      "bytes": 2215051
+    },
+    {
+      "w": 2880,
+      "h": 2160,
+      "filename": "IMG_5221.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1543012721442689174/IMG_5221.jpg?ex=6aaa6454&is=6aa912d4&hm=80f7b9312d8ff7cffb10b52cc2a85abc5ba3b9edfa884aeaef200061c5831fa2&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1543012721442689174/IMG_5221.jpg?ex=6aaa6454&is=6aa912d4&hm=80f7b9312d8ff7cffb10b52cc2a85abc5ba3b9edfa884aeaef200061c5831fa2&",
+      "content_type": "image/jpeg",
+      "size": 622578,
+      "author": "Boom Baum",
+      "author_id": "1276930481228877855",
+      "timestamp": "2026-08-28T21:41:40.647000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1543012721715454103",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1543012721715454103",
+      "caption": "Flat tire on interstate",
+      "reactions": [],
+      "local_path": "/workspace/lana-week1/assets/discord/02_Boom_Baum_1543012721715454103.jpg",
+      "bytes": 622578
+    },
+    {
+      "w": 2160,
+      "h": 2880,
+      "filename": "IMG_0304.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1542713492962942987/IMG_0304.jpg?ex=6aaa9f26&is=6aa94da6&hm=a66c5da005e0db4bc56eed4fafe7d921b71b016d2812844fef7e40e0819a6dcf&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1542713492962942987/IMG_0304.jpg?ex=6aaa9f26&is=6aa94da6&hm=a66c5da005e0db4bc56eed4fafe7d921b71b016d2812844fef7e40e0819a6dcf&",
+      "content_type": "image/jpeg",
+      "size": 395876,
+      "author": "The Wheaton Dick Whacker",
+      "author_id": "1278905721135693865",
+      "timestamp": "2026-08-28T01:52:38.943000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1542713492920864830",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1542713492920864830",
+      "caption": "Got my day 1 outfit ready to go! See yall tomorrow!!",
+      "reactions": [
+        {
+          "name": "\ud83e\udd23",
+          "count": 5
+        },
+        {
+          "name": "\u2764\ufe0f",
+          "count": 1
+        }
+      ],
+      "local_path": "/workspace/lana-week1/assets/discord/03_The_Wheaton_Dick_Whacker_1542713492920864830.jpg",
+      "bytes": 2101020
+    },
+    {
+      "w": 2160,
+      "h": 2880,
+      "filename": "IMG_9724.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1542700607582769212/IMG_9724.jpg?ex=6aaa9326&is=6aa941a6&hm=556c30dc1a48e093a96fcc1c71bd5ab02a12454ee08466cf65968251351bca05&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1542700607582769212/IMG_9724.jpg?ex=6aaa9326&is=6aa941a6&hm=556c30dc1a48e093a96fcc1c71bd5ab02a12454ee08466cf65968251351bca05&",
+      "content_type": "image/jpeg",
+      "size": 315963,
+      "author": "Amburgers",
+      "author_id": "343882148526292995",
+      "timestamp": "2026-08-28T01:01:27.001000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1542700608262242386",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1542700608262242386",
+      "caption": "Enjoying my last night \u2026",
+      "reactions": [
+        {
+          "name": "\ud83e\udd23",
+          "count": 6
+        },
+        {
+          "name": "\ud83d\ude02",
+          "count": 2
+        }
+      ],
+      "local_path": "/workspace/lana-week1/assets/discord/04_Amburgers_1542700608262242386.jpg",
+      "bytes": 315963
+    },
+    {
+      "w": 2101,
+      "h": 3024,
+      "filename": "IMG_9432.png",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1542947136931496016/IMG_9432.png?ex=6aaad000&is=6aa97e80&hm=6b7acab30fb5c8a8eebad8cb83f80aa89d58620e2409e3ce7ae9845b653b02b1&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1542947136931496016/IMG_9432.png?ex=6aaad000&is=6aa97e80&hm=6b7acab30fb5c8a8eebad8cb83f80aa89d58620e2409e3ce7ae9845b653b02b1&",
+      "content_type": "image/jpeg",
+      "size": 577631,
+      "author": "OC002",
+      "author_id": "736747844819615744",
+      "timestamp": "2026-08-28T17:21:04.217000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1542947137774424167",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1542947137774424167",
+      "caption": "Is my son <@1044009532856213535> going to the draft??",
+      "reactions": [
+        {
+          "name": "\ud83d\ude2e",
+          "count": 6
+        },
+        {
+          "name": "\ud83e\udd23",
+          "count": 6
+        }
+      ],
+      "local_path": "/workspace/lana-week1/assets/discord/05_OC002_1542947137774424167.png",
+      "bytes": 2931385
+    },
+    {
+      "w": 3024,
+      "h": 4032,
+      "filename": "IMG_4509.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1543611614694084639/IMG_4509.jpg?ex=6aaa97d7&is=6aa94657&hm=75343d0a8d0911ffb7000dde9dffafde54beec2e6cce2d25cc2988a99c25190d&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1543611614694084639/IMG_4509.jpg?ex=6aaa97d7&is=6aa94657&hm=75343d0a8d0911ffb7000dde9dffafde54beec2e6cce2d25cc2988a99c25190d&",
+      "content_type": "image/jpeg",
+      "size": 1322870,
+      "author": "Fart Toot Squeek",
+      "author_id": "946795187349368842",
+      "timestamp": "2026-08-30T13:21:27.964000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1543611615130423327",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1543611615130423327",
+      "caption": "If <@1278905721135693865> was a bee",
+      "reactions": [],
+      "local_path": "/workspace/lana-week1/assets/discord/06_Fart_Toot_Squeek_1543611615130423327.jpg",
+      "bytes": 5701821
+    },
+    {
+      "w": 2880,
+      "h": 2160,
+      "filename": "80983601926__A28755DE-27DE-4D93-9AEC-454BA4B0B8AD.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1543987014355914883/80983601926__A28755DE-27DE-4D93-9AEC-454BA4B0B8AD.jpg?ex=6aaaa3f6&is=6aa95276&hm=0571eec3e57ec5c0554c1d28e057801e391defa898d548c04afa086a52969222&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1543987014355914883/80983601926__A28755DE-27DE-4D93-9AEC-454BA4B0B8AD.jpg?ex=6aaaa3f6&is=6aa95276&hm=0571eec3e57ec5c0554c1d28e057801e391defa898d548c04afa086a52969222&",
+      "content_type": "image/jpeg",
+      "size": 280231,
+      "author": "Diamond Dogs",
+      "author_id": "817570681419989023",
+      "timestamp": "2026-08-31T14:13:10.193000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1543987014687391814",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1543987014687391814",
+      "caption": "What shows up at your door at night when you don\u2019t respond to a Boom trade offer within 20 minutes",
+      "reactions": [
+        {
+          "name": "\ud83d\ude02",
+          "count": 5
+        }
+      ],
+      "local_path": "/workspace/lana-week1/assets/discord/07_Diamond_Dogs_1543987014687391814.jpg",
+      "bytes": 280231
+    },
+    {
+      "w": 2880,
+      "h": 2160,
+      "filename": "image.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1547990762493448353/image.jpg?ex=6aaab43e&is=6aa962be&hm=6087d1abb82eb7868f13e5644904b26dfe4feb3eba1914c459eaecaf3241507d&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1547990762493448353/image.jpg?ex=6aaab43e&is=6aa962be&hm=6087d1abb82eb7868f13e5644904b26dfe4feb3eba1914c459eaecaf3241507d&",
+      "content_type": "image/jpeg",
+      "size": 619709,
+      "author": "Diamond Dogs",
+      "author_id": "817570681419989023",
+      "timestamp": "2026-09-11T15:22:38.137000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1547990762833322134",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1547990762833322134",
+      "caption": "Just had to post this draft day action shot I got courtesy of Dallas.",
+      "reactions": [],
+      "local_path": "/workspace/lana-week1/assets/discord/08_Diamond_Dogs_1547990762833322134.jpg",
+      "bytes": 619709
+    },
+    {
+      "w": 2160,
+      "h": 2880,
+      "filename": "IMG_8360.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1543356566684827738/IMG_8360.jpg?ex=6aaafbcf&is=6aa9aa4f&hm=e8a4d59ec71c457dd12f5665ce0625f907616c30aa2e53a6cb28782417c6550d&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1543356566684827738/IMG_8360.jpg?ex=6aaafbcf&is=6aa9aa4f&hm=e8a4d59ec71c457dd12f5665ce0625f907616c30aa2e53a6cb28782417c6550d&",
+      "content_type": "image/jpeg",
+      "size": 213381,
+      "author": "Dave Ten Have",
+      "author_id": "1279121417442689097",
+      "timestamp": "2026-08-29T20:27:59.723000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1543356566881829078",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1543356566881829078",
+      "caption": "",
+      "reactions": [],
+      "local_path": "/workspace/lana-week1/assets/discord/09_Dave_Ten_Have_1543356566881829078.jpg",
+      "bytes": 1237631
+    },
+    {
+      "w": 2048,
+      "h": 1306,
+      "filename": "image0.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1543360732907835392/image0.jpg?ex=6aaaffb0&is=6aa9ae30&hm=de1a081781e22ca8238d63f652f692cc8af6b2e82d6efd0699da0afd7546529b&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1543360732907835392/image0.jpg?ex=6aaaffb0&is=6aa9ae30&hm=de1a081781e22ca8238d63f652f692cc8af6b2e82d6efd0699da0afd7546529b&",
+      "content_type": "image/jpeg",
+      "size": 269032,
+      "author": "Dave Ten Have",
+      "author_id": "1279121417442689097",
+      "timestamp": "2026-08-29T20:44:32.969000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1543360732857368687",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1543360732857368687",
+      "caption": "",
+      "reactions": [
+        {
+          "name": "\ud83e\udd23",
+          "count": 2
+        }
+      ],
+      "local_path": "/workspace/lana-week1/assets/discord/10_Dave_Ten_Have_1543360732857368687.jpg",
+      "bytes": 269032
+    },
+    {
+      "w": 1206,
+      "h": 748,
+      "filename": "image0.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1543362218685370450/image0.jpg?ex=6aab0113&is=6aa9af93&hm=342d9191a5370f188e150141b2e05499dacf2e8fdefcae8d389d518414ff0342&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1543362218685370450/image0.jpg?ex=6aab0113&is=6aa9af93&hm=342d9191a5370f188e150141b2e05499dacf2e8fdefcae8d389d518414ff0342&",
+      "content_type": "image/jpeg",
+      "size": 346662,
+      "author": "Boom Baum",
+      "author_id": "1276930481228877855",
+      "timestamp": "2026-08-29T20:50:27.308000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1543362219062984814",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1543362219062984814",
+      "caption": "",
+      "reactions": [
+        {
+          "name": "\ud83d\ude02",
+          "count": 4
+        }
+      ],
+      "local_path": "/workspace/lana-week1/assets/discord/11_Boom_Baum_1543362219062984814.jpg",
+      "bytes": 346662
+    },
+    {
+      "w": 2160,
+      "h": 2880,
+      "filename": "64BBB4EC-B0CE-4B74-A42D-3398259961BB.jpg",
+      "url": "https://cdn.discordapp.com/attachments/1160416085326188555/1543610548069994607/64BBB4EC-B0CE-4B74-A42D-3398259961BB.jpg?ex=6aaa96d9&is=6aa94559&hm=1f0b6ba8d0cbeb9c1cd8abbe1ca67b3a7b9d830a623a02282349a527c38f0dff&",
+      "proxy": "https://media.discordapp.net/attachments/1160416085326188555/1543610548069994607/64BBB4EC-B0CE-4B74-A42D-3398259961BB.jpg?ex=6aaa96d9&is=6aa94559&hm=1f0b6ba8d0cbeb9c1cd8abbe1ca67b3a7b9d830a623a02282349a527c38f0dff&",
+      "content_type": "image/jpeg",
+      "size": 838972,
+      "author": "Texas Tornado\u2019s Bush",
+      "author_id": "1001647397434298368",
+      "timestamp": "2026-08-30T13:17:13.664000+00:00",
+      "channel": "\ud83d\udeaageneral",
+      "channel_id": "1160416085326188555",
+      "message_id": "1543610548518916156",
+      "message_url": "https://discord.com/channels/1160416084235661426/1160416085326188555/1543610548518916156",
+      "caption": "",
+      "reactions": [
+        {
+          "name": "\ud83e\udd23",
+          "count": 1
+        }
+      ],
+      "local_path": "/workspace/lana-week1/assets/discord/12_Texas_Tornado\u2019s_Bush_1543610548518916156.jpg",
+      "bytes": 3801959
+    }
+  ]
+}
