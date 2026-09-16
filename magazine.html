@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <title>One Last Night With the Hardware &#183; Lana Straw Weekly</title>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="viewport" content="width=850"/>
 <meta name="description" content="The expanded Draft Weekend &amp; Week 1 issue. Stone Cold took the belt. Kickers filed 179.86. Boom asked for a therapist."/>
 <link rel="canonical" href="https://j-r-j.github.io/lana-straw-week1-2026/magazine.html"/>
 <meta property="og:type" content="article"/>
@@ -60,18 +60,7 @@ html, body {
 @media print {
   html, body { background: white; overflow: visible; }
   .share-bar { display: none !important; }
-  .rack {
-    padding: 0 !important;
-    width: auto !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-  .sheet {
-    zoom: 1 !important;
-    transform: none !important;
-    width: auto !important;
-    position: static !important;
-  }
+  .rack { padding: 0 !important; }
   .page {
     break-after: page;
     page-break-after: always;
@@ -126,18 +115,13 @@ html, body {
 }
 
 .rack {
-  width: 100%;
-  max-width: 100vw;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 12px 0 48px;
-  margin: 0 auto;
 }
 .sheet {
   width: 8.5in;
-  margin: 0 auto;
-  transform: scale(var(--pagescale, 1));
-  transform-origin: top left;
-  will-change: transform;
 }
 
 .page {
@@ -1535,39 +1519,5 @@ h2.subhed {
 </section>
 
 </div></div>
-<script>
-(function () {
-  var PAGE_W = 816; /* 8.5in at 96dpi */
-  var sheet = document.querySelector(".sheet");
-  var rack = document.querySelector(".rack");
-  if (!sheet || !rack) return;
-
-  function fit() {
-    var pad = 12;
-    var vw = Math.min(window.innerWidth, document.documentElement.clientWidth);
-    var scale = Math.min(1, (vw - pad) / PAGE_W);
-    document.documentElement.style.setProperty("--pagescale", String(scale));
-
-    /* transform does not shrink layout box; collapse the rack to scaled size */
-    sheet.style.transform = "scale(" + scale + ")";
-    sheet.style.transformOrigin = "top left";
-    var fullH = sheet.scrollHeight;
-    rack.style.width = Math.floor(PAGE_W * scale) + "px";
-    rack.style.height = Math.ceil(fullH * scale) + "px";
-    rack.style.marginLeft = "auto";
-    rack.style.marginRight = "auto";
-  }
-
-  fit();
-  window.addEventListener("resize", fit);
-  window.addEventListener("orientationchange", function () {
-    setTimeout(fit, 150);
-  });
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(fit);
-  }
-  window.addEventListener("load", fit);
-})();
-</script>
 </body>
 </html>
