@@ -1180,6 +1180,16 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
 .vol-grid.ns .vol-tile { height: 1.3in; }
 .vol-grid.ns .vt-cap { font-size: 7.5pt; }
 
+/* ---- photos are fixed-size: nothing stretches to fill leftover space ----
+   Every interior photo needs an explicit height: inline style on .img-frame (or on the img in a
+   figure.wire), or a fixed-size frame class. build.py --check fails the page otherwise. */
+.fig--fill { flex: 0 0 auto; }
+.img-frame, .fig--fill .img-frame { flex: 0 0 auto; min-height: 0; max-height: none; }
+
+/* wild card: the same yellow row in both flights and both table styles */
+table.standings tr.wc td { background: #f3e6b8; border-bottom: 1px solid #e0c95a; font-weight: 700; }
+table.standings tr.wc td:first-child { color: var(--gold); font-weight: 800; }
+
 </style>
 <div class="rack">
 <!-- 01 COVER -->
@@ -1257,7 +1267,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
         </div>
       </div>
       <div class="fig fig--fill" style="margin-top:.18in;">
-        <div class="img-frame object-center">
+        <div class="img-frame object-center" style="height:2.65in;">
           <img src="assets/10-draft-board-detail.jpg" alt="Handwritten auction board"/>
         </div>
         <p class="caption">Exhibit A in every post-draft grievance. <span class="cred">Draft weekend</span></p>
@@ -1280,7 +1290,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
       </div>
       <div class="grid-feature row-fill" style="align-items:stretch;">
         <div class="fig fig--fill">
-          <div class="img-frame object-top">
+          <div class="img-frame object-top" style="height:5.60in;">
             <img src="assets/11-stone-cold-fart-toot.jpg" alt="Fart Toot Squeek as Stone Cold Steve Austin with the championship belt"/>
           </div>
           <p class="caption">And that&#8217;s the bottom line, cause Stone Cold Fart Toot Squeek said so. <span class="cred">Google Photos &#183; draft weekend</span></p>
@@ -1320,7 +1330,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
         <p class="byline">The Straw Staff &#183; Draft night</p>
       </div>
       <div class="fig fig--fill row-fill">
-        <div class="img-frame object-center" style="height:5.4in;">
+        <div class="img-frame object-center" style="height:5.60in;">
           <img src="assets/12-relegation-brothers-ceremony.jpg" alt="Relegation ceremony with fire pan and brothers"/>
         </div>
         <p class="caption">The draft board witnessed. It did not intervene. <span class="cred">Draft weekend</span></p>
@@ -1353,14 +1363,14 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
       </div>
       <div class="grid-feature row-fill">
         <div class="fig fig--fill">
-          <div class="img-frame object-faces">
+          <div class="img-frame object-faces" style="height:5.15in;">
             <img src="assets/02-alt-draft-table-group.jpg" alt="League members at the draft table"/>
           </div>
           <p class="caption">Where $200 goes to die with dignity. <span class="cred">Draft weekend</span></p>
         </div>
         <div class="rail">
           <div class="fig fig--fill">
-            <div class="img-frame object-center">
+            <div class="img-frame object-center" style="height:3.85in;">
               <img src="assets/02_Boom_Baum_1543012721715454103.jpg" alt="Boom Baum flat tire"/>
             </div>
             <p class="caption">First opponent of the year: Goodyear. <span class="cred">Discord &#183; Aug 28</span></p>
@@ -1422,7 +1432,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
           <div class="attr">The Wheaton Dick Whacker &#183; Discord &#183; Aug 28</div>
         </div>
         <div class="fig fig--fill">
-          <div class="img-frame object-center">
+          <div class="img-frame object-center" style="height:3.10in;">
             <img src="assets/08-poolside-watermelon-candid.jpg" alt="Poolside watermelon event"/>
           </div>
           <p class="caption">Proof that fruit can be a contact sport.</p>
@@ -1446,7 +1456,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
       <div class="grid-spread row-fill" style="grid-template-columns:1.15fr 1fr;align-items:stretch;">
         <div class="essay-stack">
           <div class="fig fig--fill">
-            <div class="img-frame object-center">
+            <div class="img-frame object-center" style="height:4.25in;">
               <img src="assets/14_thatjohnjohnson_1543803602005663885_0.jpg" alt="Celery Stinks in blonde wig costume picked by Fart Toot Squeek"/>
             </div>
             <p class="caption">Celery Stinks. Styling by Fart Toot Squeek.</p>
@@ -1583,7 +1593,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
                 <tr class="playoff"><td>4</td><td>Texas Tornado's Bush</td><td class="num">1-0</td><td class="num">124.06</td><td class="num">97.30</td></tr>
                 <tr class="playoff"><td>5</td><td>The Scott Ramsays</td><td class="num">1-0</td><td class="num">99.54</td><td class="num">89.52</td></tr>
                 <tr class="playoff"><td>6</td><td>Shiny Hineys</td><td class="num">1-0</td><td class="num">91.56</td><td class="num">89.50</td></tr>
-                <tr><td>7</td><td>Fart Toot Squeek</td><td class="num">0-1</td><td class="num">136.90</td><td class="num">179.86</td></tr>
+                <tr class="wc"><td>WC</td><td>Fart Toot Squeek</td><td class="num">0-1</td><td class="num">136.90</td><td class="num">179.86</td></tr>
                 <tr><td>8</td><td>Jackin' Goff</td><td class="num">0-1</td><td class="num">123.76</td><td class="num">145.76</td></tr>
                 <tr><td>9</td><td>Boom Baum</td><td class="num">0-1</td><td class="num">98.80</td><td class="num">133.86</td></tr>
                 <tr><td>10</td><td>H Town Holy Rollers</td><td class="num">0-1</td><td class="num">97.30</td><td class="num">124.06</td></tr>
@@ -1591,6 +1601,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
                 <tr><td>12</td><td>Backdoor Heat</td><td class="num">0-1</td><td class="num">89.50</td><td class="num">91.56</td></tr>
               </tbody>
             </table>
+<p class="wcrail">Yellow line: the wild card, the most points outside the top six. Fart Toot Squeek holds it at 136.90 and is also seventh on record.</p>
           </div>
         </div>
       </div>
@@ -1657,7 +1668,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
                 <tr class="playoff"><td>4</td><td>Amburgers</td><td class="num">1-0</td><td class="num">121.24</td><td class="num">95.30</td></tr>
                 <tr class="playoff"><td>5</td><td>Mac Attack</td><td class="num">1-0</td><td class="num">117.66</td><td class="num">107.80</td></tr>
                 <tr class="playoff"><td>6</td><td>Madison Beer</td><td class="num">1-0</td><td class="num">95.10</td><td class="num">91.62</td></tr>
-                <tr><td>7</td><td>Jerry GM + Jerry Owner</td><td class="num">0-1</td><td class="num">133.16</td><td class="num">133.46</td></tr>
+                <tr class="wc"><td>WC</td><td>Jerry GM + Jerry Owner</td><td class="num">0-1</td><td class="num">133.16</td><td class="num">133.46</td></tr>
                 <tr><td>8</td><td>The Jackal</td><td class="num">0-1</td><td class="num">120.66</td><td class="num">140.10</td></tr>
                 <tr><td>9</td><td>Prime Lime Time</td><td class="num">0-1</td><td class="num">107.80</td><td class="num">117.66</td></tr>
                 <tr><td>10</td><td>Chase Is My Leader</td><td class="num">0-1</td><td class="num">95.30</td><td class="num">121.24</td></tr>
@@ -1665,6 +1676,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
                 <tr><td>12</td><td>Jordan's Trainers</td><td class="num">0-1</td><td class="num">90.12</td><td class="num">128.46</td></tr>
               </tbody>
             </table>
+<p class="wcrail">Yellow line: the wild card, the most points outside the top six. Jerry GM + Jerry Owner holds it at 133.16 and is also seventh on record.</p>
           </div>
         </div>
       </div>
@@ -1689,7 +1701,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
           </div>
         </div>
         <div class="fig fig--fill">
-          <div class="img-frame object-top">
+          <div class="img-frame object-top" style="height:2.75in;">
             <img src="assets/14_c_studd_jerry-diamonds-crop.jpg" alt="Jerry Jones diamond grill meme"/>
           </div>
           <p class="caption">133.16 points. Still flashing the stones.</p>
@@ -1755,13 +1767,13 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
         </div>
         <div class="rail">
           <div class="fig fig--fill">
-            <div class="img-frame object-center">
+            <div class="img-frame object-center" style="height:2.60in;">
               <img src="assets/07_Diamond_Dogs_1543987014687391814.jpg" alt="Boom trade offer door meme"/>
             </div>
             <p class="caption">Twenty minutes. Still waiting.</p>
           </div>
           <div class="fig fig--fill" style="margin-top:8px;">
-            <div class="img-frame object-center">
+            <div class="img-frame object-center" style="height:2.60in;">
               <img src="assets/14_gooch5226_1547047224872280204_0_still.jpg" alt="Reaction to a Boom trade offer"/>
             </div>
             <p class="caption">"Any time Boom sends a trade offer:" <span class="cred">Shiny Hineys &#183; Sep 9</span></p>
@@ -1818,7 +1830,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
             <p>Jerry GM + Jerry Owner was driving to work with the pod playing. The window came down for the garage badge just as Fart Toot Squeek said "Jesus Neck Tattoo and Jackin' Goff." Someone heard. The badge did not recover. Later Jerry renamed the operation Yes Diamonds, which feels like the correct emotional response.</p>
           </div>
           <div class="fig fig--fill" style="margin-top:9px;">
-            <div class="img-frame object-center">
+            <div class="img-frame object-center" style="height:3.80in;">
               <img src="assets/15_belt_memorial_1546531248166543392.jpg" alt="Amburgers championship chain memorial on the wall"/>
             </div>
             <p class="caption">"Once&#8230;a great belt hung on this wall. Now it&#8217;s just a chain of a memory that once was." <span class="cred">Amburgers &#183; Sep 7</span></p>
@@ -1842,8 +1854,8 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
             <div class="qa">Jerry GM + Jerry Owner &#183; Sep 14</div>
           </div>
           <div class="fig fig--fill">
-            <div class="img-frame object-faces">
-              <img src="assets/08_Diamond_Dogs_1547990762833322134.jpg" alt="Draft action"/>
+            <div class="img-frame object-faces" style="height:5.05in;">
+              <img src="assets/08_Diamond_Dogs_1547990762833322134.jpg" style="object-position:center 82%" alt="Draft action"/>
             </div>
             <p class="caption">Amburgers, directing traffic.</p>
           </div>
@@ -1887,13 +1899,13 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
         </div>
         <div class="essay-stack">
           <div class="fig fig--fill">
-            <div class="img-frame object-top">
+            <div class="img-frame object-top" style="height:3.30in;">
               <img src="assets/14_amburgers__1547368643862728854_0.jpg" alt="Brock Bowers knee meme"/>
             </div>
             <p class="caption">Injury report, second tower edition.</p>
           </div>
           <div class="fig fig--fill">
-            <div class="img-frame object-center">
+            <div class="img-frame object-center" style="height:3.30in;">
               <img src="assets/14_coachshippy_1544183511609507912_0.jpg" alt="Lion King betrayal meme"/>
             </div>
             <p class="caption">Trust expired in Week 1.</p>
@@ -1942,7 +1954,7 @@ figcaption .cred { color: var(--gold); font-weight: 600; }
           <div class="lookahead-item"><span>Neaux Gold, All Glory</span><span class="vs">@ Madison Beer</span></div>
           <div class="lookahead-item"><span>Otter</span><span class="vs">@ OKC Schlegstas</span></div>
           <div class="fig fig--fill" style="margin-top:10px;">
-            <div class="img-frame object-faces" style="height:3in;">
+            <div class="img-frame object-faces" style="height:3.00in;">
               <img src="assets/04-outdoor-draft-social-table.jpg" alt="Outdoor draft weekend table"/>
             </div>
             <p class="caption">The calm before someone nominated someone.</p>
